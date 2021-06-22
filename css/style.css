@@ -81,6 +81,7 @@ a {
 html {
   width: 100%;
   height: 100%;
+  background: #c7b87b;
 }
 html body {
   width: 100%;
@@ -89,7 +90,7 @@ html body {
 }
 html body header {
   width: 100%;
-  min-width: 1500px;
+  min-width: 1600px;
   height: auto;
   position: fixed;
   top: 0px;
@@ -393,7 +394,7 @@ html body header .slideMenu article .innerList a p {
 }
 html body main {
   width: 100%;
-  min-width: 1500px;
+  min-width: 1600px;
   height: auto;
   padding-top: 132px;
 }
@@ -789,6 +790,7 @@ html body main .mainBox article .multiple-items .slick-next:hover, html body mai
 }
 html body footer {
   width: 100%;
+  min-width: 1600px;
   height: auto;
 }
 html body footer .top {
@@ -841,7 +843,7 @@ html body footer .bottom p:last-child {
 }
 html body .bg {
   width: 100%;
-  min-width: 1500px;
+  min-width: 1600px;
   height: 100%;
   position: absolute;
   top: 0px;

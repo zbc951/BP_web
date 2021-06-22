@@ -1,6 +1,7 @@
 html {
     width: 100%;
     height: 100%;
+    background: #c7b87b;
 
     body {
         width: 100%;
@@ -10,7 +11,7 @@ html {
         //header
         header {
             width: 100%;
-            min-width: 1500px;
+            min-width: 1600px;
             height: auto;
             position: fixed;
             top: 0px;
@@ -336,7 +337,7 @@ html {
         //main
         main {
             width: 100%;
-            min-width: 1500px;
+            min-width: 1600px;
             height: auto;
             padding-top: 132px;
 
@@ -822,6 +823,7 @@ html {
         //footer
         footer {
             width: 100%;
+            min-width: 1600px;
             height: auto;
 
             //上部
@@ -887,7 +889,7 @@ html {
         //bg
         .bg {
             width: 100%;
-            min-width: 1500px;
+            min-width: 1600px;
             height: 100%;
             position: absolute;
             top: 0px;
