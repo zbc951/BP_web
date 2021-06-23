@@ -313,18 +313,43 @@ html body header .bottom article ul li {
   height: 100%;
   text-align: center;
 }
-html body header .bottom article ul li:hover a, html body header .bottom article ul li:active a, html body header .bottom article ul li.active a {
+html body header .bottom article ul li:hover a::before, html body header .bottom article ul li:active a::before, html body header .bottom article ul li.active a::before {
+  -webkit-animation: li_hover1 0.3s linear 0s;
+          animation: li_hover1 0.3s linear 0s;
   background: -webkit-gradient(linear, left bottom, left top, from(#804fd3), to(#ae1374));
   background: linear-gradient(to top, #804fd3 0%, #ae1374 100%);
+  width: 100%;
+  height: 100%;
+}
+html body header .bottom article ul li:hover a span, html body header .bottom article ul li:active a span, html body header .bottom article ul li.active a span {
   color: #ffffff;
+  -webkit-animation: imgJump 0.3s linear 0s;
+          animation: imgJump 0.3s linear 0s;
 }
 html body header .bottom article ul li a {
   display: block;
   width: 100%;
   height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+html body header .bottom article ul li a::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 0px;
+  width: 0px;
+  height: 0px;
+}
+html body header .bottom article ul li a span {
+  display: block;
   color: #ddc075;
   line-height: 70px;
   font-size: 18px;
+  position: relative;
+  z-index: 2;
 }
 html body header .slideMenu {
   opacity: 0;
@@ -466,6 +491,8 @@ html body main .sideBtn {
 html body main .sideBtn:hover, html body main .sideBtn:active, html body main .sideBtn.active {
   border-color: #b776d9 #680e60 #680e60 #b776d9;
   background: linear-gradient(-11deg, #cc1fa1 2%, #7a2bac 97%);
+  -webkit-animation: rightSide_hover 0.7s linear 0s;
+          animation: rightSide_hover 0.7s linear 0s;
 }
 html body main .sideBtn:hover span, html body main .sideBtn:active span, html body main .sideBtn.active span {
   background-position-y: 100%;
@@ -516,7 +543,7 @@ html body main .single-item {
 html body main .single-item a .img {
   width: 100%;
   height: 0px;
-  padding-bottom: 25.52%;
+  padding-bottom: 23%;
   background: url("../images/banner.png") no-repeat;
   background-size: 100%;
 }
@@ -581,27 +608,13 @@ html body main .mainBox article .mainList li {
           box-shadow: 0px 0px 0px 1px #26062d inset;
   position: relative;
 }
-html body main .mainBox article .mainList li:hover::before, html body main .mainBox article .mainList li:active::before, html body main .mainBox article .mainList li.active::before {
-  -webkit-animation: imgJump 0.7s ease-out 0s;
-          animation: imgJump 0.7s ease-out 0s;
-}
 html body main .mainBox article .mainList li:hover::after, html body main .mainBox article .mainList li:active::after, html body main .mainBox article .mainList li.active::after {
-  -webkit-animation: wordJump 0.4s ease-out 0s;
-          animation: wordJump 0.4s ease-out 0s;
+  -webkit-animation: wordJump 0.2s ease-out 0s;
+          animation: wordJump 0.2s ease-out 0s;
 }
-html body main .mainBox article .mainList li::before {
-  content: "";
-  position: absolute;
-  width: 215px;
-  height: 227px;
-  background: url("../images/mainImg_small.png") no-repeat;
-  background-size: 600%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  bottom: 0px;
-  z-index: 2;
-  pointer-events: none;
+html body main .mainBox article .mainList li:hover div span, html body main .mainBox article .mainList li:active div span, html body main .mainBox article .mainList li.active div span {
+  -webkit-animation: imgJump 0.4s ease-out 0s;
+          animation: imgJump 0.4s ease-out 0s;
 }
 html body main .mainBox article .mainList li::after {
   content: "";
@@ -616,7 +629,7 @@ html body main .mainBox article .mainList li::after {
           transform: translate(-50%, -50%);
   pointer-events: none;
 }
-html body main .mainBox article .mainList li.sportGame::before {
+html body main .mainBox article .mainList li.sportGame div {
   bottom: -4px;
   left: 65%;
 }
@@ -628,7 +641,7 @@ html body main .mainBox article .mainList li.sportGame a::after {
   -webkit-animation: floatBall3 1s ease-in-out 0s infinite alternate;
           animation: floatBall3 1s ease-in-out 0s infinite alternate;
 }
-html body main .mainBox article .mainList li.liveGame::before, html body main .mainBox article .mainList li.liveGame::after {
+html body main .mainBox article .mainList li.liveGame div span, html body main .mainBox article .mainList li.liveGame::after {
   background-position-x: 20%;
 }
 html body main .mainBox article .mainList li.liveGame a::before {
@@ -639,7 +652,7 @@ html body main .mainBox article .mainList li.liveGame a::after {
   -webkit-animation: floatBall4 0.8s ease-in-out 0s infinite alternate;
           animation: floatBall4 0.8s ease-in-out 0s infinite alternate;
 }
-html body main .mainBox article .mainList li.slotGame::before, html body main .mainBox article .mainList li.slotGame::after {
+html body main .mainBox article .mainList li.slotGame div span, html body main .mainBox article .mainList li.slotGame::after {
   background-position-x: 40%;
 }
 html body main .mainBox article .mainList li.slotGame a::before {
@@ -650,7 +663,7 @@ html body main .mainBox article .mainList li.slotGame a::after {
   -webkit-animation: floatBall3 1.4s ease-in-out 0s infinite alternate;
           animation: floatBall3 1.4s ease-in-out 0s infinite alternate;
 }
-html body main .mainBox article .mainList li.lotteryGame::before, html body main .mainBox article .mainList li.lotteryGame::after {
+html body main .mainBox article .mainList li.lotteryGame div span, html body main .mainBox article .mainList li.lotteryGame::after {
   background-position-x: 60%;
 }
 html body main .mainBox article .mainList li.lotteryGame a::before {
@@ -661,7 +674,7 @@ html body main .mainBox article .mainList li.lotteryGame a::after {
   -webkit-animation: floatBall1 1s ease-in-out 0s infinite alternate;
           animation: floatBall1 1s ease-in-out 0s infinite alternate;
 }
-html body main .mainBox article .mainList li.fishGame::before, html body main .mainBox article .mainList li.fishGame::after {
+html body main .mainBox article .mainList li.fishGame div span, html body main .mainBox article .mainList li.fishGame::after {
   background-position-x: 80%;
 }
 html body main .mainBox article .mainList li.fishGame a::before {
@@ -672,7 +685,7 @@ html body main .mainBox article .mainList li.fishGame a::after {
   -webkit-animation: floatBall4 1.5s ease-in-out 0s infinite alternate;
           animation: floatBall4 1.5s ease-in-out 0s infinite alternate;
 }
-html body main .mainBox article .mainList li.cardGame::before, html body main .mainBox article .mainList li.cardGame::after {
+html body main .mainBox article .mainList li.cardGame div span, html body main .mainBox article .mainList li.cardGame::after {
   background-position-x: 100%;
 }
 html body main .mainBox article .mainList li.cardGame a::before {
@@ -709,6 +722,26 @@ html body main .mainBox article .mainList li a::after {
   background: url("../images/ball.png") no-repeat;
   pointer-events: none;
 }
+html body main .mainBox article .mainList li div {
+  position: absolute;
+  overflow: hidden;
+  width: 215px;
+  height: 227px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 0px;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+html body main .mainBox article .mainList li div span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url("../images/mainImg_small.png") no-repeat;
+  background-size: 600%;
+}
 html body main .mainBox article .mainList li p {
   color: #f8e9ad;
   font-size: 21px;
@@ -718,7 +751,7 @@ html body main .mainBox article .mainList li p {
 html body main .mainBox article .multiple-items {
   width: 100%;
   height: auto;
-  margin: 150px 0px 50px !important;
+  margin: 95px 0px 50px !important;
 }
 html body main .mainBox article .multiple-items a {
   text-align: center;
@@ -728,10 +761,10 @@ html body main .mainBox article .multiple-items a:hover button, html body main .
           transform: scale(1.2) translateY(-10%);
 }
 html body main .mainBox article .multiple-items a .img {
-  width: 1120px;
+  width: 50%;
   height: 0px;
   margin: 0px auto;
-  padding-bottom: 56.47%;
+  padding-bottom: 40%;
   background: url("../images/mainImg_big.png") no-repeat;
   background-size: 100%;
 }
@@ -813,15 +846,25 @@ html body footer .top article ul li {
   height: 100%;
   float: left;
   text-align: center;
+  overflow: hidden;
 }
-html body footer .top article ul li:hover a, html body footer .top article ul li:active a, html body footer .top article ul li.active a {
+html body footer .top article ul li:hover, html body footer .top article ul li:active, html body footer .top article ul li.active {
   background: -webkit-gradient(linear, left top, left bottom, from(#6c0c54), to(#6f1ea3));
   background: linear-gradient(to bottom, #6c0c54 0%, #6f1ea3 100%);
+  -webkit-animation: footerLi_hover 0.4s ease-out 0s;
+          animation: footerLi_hover 0.4s ease-out 0s;
+}
+html body footer .top article ul li:hover a span, html body footer .top article ul li:active a span, html body footer .top article ul li.active a span {
+  -webkit-animation: footerA_hover 0.4s ease-out 0s;
+          animation: footerA_hover 0.4s ease-out 0s;
 }
 html body footer .top article ul li a {
   display: block;
   width: 100%;
   height: 100%;
+}
+html body footer .top article ul li a span {
+  display: block;
   line-height: 50px;
   color: #ddc075;
   font-size: 16px;
@@ -874,6 +917,34 @@ html body .bg {
             transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+@-webkit-keyframes li_hover1 {
+  0% {
+    opacity: 0;
+    width: 0%;
+    height: 0%;
+    border-radius: 50% 50% 0% 0%;
+  }
+  100% {
+    opacity: 1;
+    width: 150%;
+    height: 150%;
+    border-radius: 50% 50% 0% 0%;
+  }
+}
+@keyframes li_hover1 {
+  0% {
+    opacity: 0;
+    width: 0%;
+    height: 0%;
+    border-radius: 50% 50% 0% 0%;
+  }
+  100% {
+    opacity: 1;
+    width: 150%;
+    height: 150%;
+    border-radius: 50% 50% 0% 0%;
+  }
+}
 @-webkit-keyframes slideImg {
   0% {
     opacity: 0;
@@ -906,6 +977,74 @@ html body .bg {
     opacity: 1;
     -webkit-transform: translateY(0%);
             transform: translateY(0%);
+  }
+}
+@-webkit-keyframes rightSide_hover {
+  0% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+  10% {
+    -webkit-transform: scale(1.2) rotate(0deg);
+            transform: scale(1.2) rotate(0deg);
+  }
+  30% {
+    -webkit-transform: scale(1.2) rotate(-15deg);
+            transform: scale(1.2) rotate(-15deg);
+  }
+  45% {
+    -webkit-transform: scale(1.2) rotate(15deg);
+            transform: scale(1.2) rotate(15deg);
+  }
+  60% {
+    -webkit-transform: scale(1.2) rotate(-15deg);
+            transform: scale(1.2) rotate(-15deg);
+  }
+  75% {
+    -webkit-transform: scale(1.2) rotate(15deg);
+            transform: scale(1.2) rotate(15deg);
+  }
+  80% {
+    -webkit-transform: scale(1.2) rotate(0deg);
+            transform: scale(1.2) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+}
+@keyframes rightSide_hover {
+  0% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+  10% {
+    -webkit-transform: scale(1.2) rotate(0deg);
+            transform: scale(1.2) rotate(0deg);
+  }
+  30% {
+    -webkit-transform: scale(1.2) rotate(-15deg);
+            transform: scale(1.2) rotate(-15deg);
+  }
+  45% {
+    -webkit-transform: scale(1.2) rotate(15deg);
+            transform: scale(1.2) rotate(15deg);
+  }
+  60% {
+    -webkit-transform: scale(1.2) rotate(-15deg);
+            transform: scale(1.2) rotate(-15deg);
+  }
+  75% {
+    -webkit-transform: scale(1.2) rotate(15deg);
+            transform: scale(1.2) rotate(15deg);
+  }
+  80% {
+    -webkit-transform: scale(1.2) rotate(0deg);
+            transform: scale(1.2) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
   }
 }
 @-webkit-keyframes floatBall1 {
@@ -1015,34 +1154,84 @@ html body .bg {
 @-webkit-keyframes imgJump {
   0% {
     opacity: 0;
-    -webkit-transform: translate(-50%, -30%);
-            transform: translate(-50%, -30%);
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
   }
   50% {
     opacity: 0;
-    -webkit-transform: translate(-50%, -30%);
-            transform: translate(-50%, -30%);
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translate(-50%, 0%);
-            transform: translate(-50%, 0%);
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
   }
 }
 @keyframes imgJump {
   0% {
     opacity: 0;
-    -webkit-transform: translate(-50%, -30%);
-            transform: translate(-50%, -30%);
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
   }
   50% {
     opacity: 0;
-    -webkit-transform: translate(-50%, -30%);
-            transform: translate(-50%, -30%);
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translate(-50%, 0%);
-            transform: translate(-50%, 0%);
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@-webkit-keyframes footerLi_hover {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes footerLi_hover {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes footerA_hover {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+@keyframes footerA_hover {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
   }
 }

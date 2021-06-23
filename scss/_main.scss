@@ -246,8 +246,18 @@ html {
                             &:hover,&:active,&.active {
 
                                 a {
-                                    background: linear-gradient(to top,#804fd3 0%,#ae1374 100%);
-                                    color: #ffffff;
+
+                                    &::before {
+                                        animation: li_hover1 0.3s linear 0s;
+                                        background: linear-gradient(to top,#804fd3 0%,#ae1374 100%);
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+
+                                    span {
+                                        color: #ffffff;
+                                        animation: imgJump 0.3s linear 0s;
+                                    }
                                 }
                             }
 
@@ -255,9 +265,27 @@ html {
                                 display: block;
                                 width: 100%;
                                 height: 100%;
-                                color: #ddc075;
-                                line-height: 70px;
-                                font-size: 18px;
+                                position: relative;
+                                overflow: hidden;
+
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    bottom: 0px;
+                                    width: 0px;
+                                    height: 0px;
+                                }
+
+                                span {
+                                    display: block;
+                                    color: #ddc075;
+                                    line-height: 70px;
+                                    font-size: 18px;
+                                    position: relative;
+                                    z-index: 2;
+                                }
                             }
                         }
                     }
@@ -411,6 +439,7 @@ html {
                 &:hover,&:active,&.active {
                     border-color: #b776d9 #680e60 #680e60 #b776d9;
                     background: linear-gradient(-11deg,#cc1fa1 2%,#7a2bac 97%);
+                    animation: rightSide_hover 0.7s linear 0s;
 
                     span {
                         background-position-y: 100%;
@@ -473,7 +502,8 @@ html {
                     .img {
                         width: 100%;
                         height: 0px;
-                        padding-bottom: 25.52%;
+                        // padding-bottom: 25.52%;
+                        padding-bottom: 23%;
                         background: url('../images/banner.png') no-repeat;
                         background-size: 100%;
                     }
@@ -543,27 +573,16 @@ html {
 
                             &:hover,&:active,&.active {
 
-                                &::before {
-                                    animation: imgJump 0.7s ease-out 0s;
-                                }
-
                                 &::after {
-                                    animation: wordJump 0.4s ease-out 0s;
+                                    animation: wordJump 0.2s ease-out 0s;
                                 }
-                            }
 
-                            &::before {
-                                content: "";
-                                position: absolute;
-                                width: 215px;
-                                height: 227px;
-                                background: url('../images/mainImg_small.png') no-repeat;
-                                background-size: 600%;
-                                left: 50%;
-                                transform: translateX(-50%);
-                                bottom: 0px;
-                                z-index: 2;
-                                pointer-events: none;
+                                div {
+
+                                    span {
+                                        animation: imgJump 0.4s ease-out 0s;
+                                    }
+                                }
                             }
 
                             &::after {
@@ -581,7 +600,7 @@ html {
 
                             &.sportGame {
 
-                                &::before {
+                                div {
                                     bottom: -4px;
                                     left: 65%;
                                 }
@@ -600,7 +619,7 @@ html {
 
                             &.liveGame {
 
-                                &::before,&::after {
+                                div span,&::after {
                                     background-position-x: 20%;
                                 }
 
@@ -618,7 +637,7 @@ html {
 
                             &.slotGame {
                                 
-                                &::before,&::after {
+                                div span,&::after {
                                     background-position-x: 40%;
                                 }
 
@@ -636,7 +655,7 @@ html {
 
                             &.lotteryGame {
 
-                                &::before,&::after {
+                                div span,&::after {
                                     background-position-x: 60%;
                                 }
 
@@ -654,7 +673,7 @@ html {
 
                             &.fishGame {
 
-                                &::before,&::after {
+                                div span,&::after {
                                     background-position-x: 80%;
                                 }
 
@@ -672,7 +691,7 @@ html {
 
                             &.cardGame {
 
-                                &::before,&::after {
+                                div span,&::after {
                                     background-position-x: 100%;
                                 }
 
@@ -717,6 +736,27 @@ html {
                                 }
                             }
 
+                            div {
+                                position: absolute;
+                                overflow: hidden;
+                                width: 215px;
+                                height: 227px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                bottom: 0px;
+                                pointer-events: none;
+                                overflow: hidden;
+                                z-index: 2;
+                                
+                                span {
+                                    display: block;
+                                    width: 100%;
+                                    height: 100%;
+                                    background: url('../images/mainImg_small.png') no-repeat;
+                                    background-size: 600%;
+                                }
+                            }
+
                             p {
                                 color: #f8e9ad;
                                 font-size: 21px;
@@ -730,8 +770,8 @@ html {
                     .multiple-items {
                         width: 100%;
                         height: auto;
-                        margin: 150px 0px 50px !important;
-
+                        // margin: 150px 0px 50px !important;
+                        margin: 95px 0px 50px !important;
                         a {
                             text-align: center;
 
@@ -743,10 +783,12 @@ html {
                             }
 
                             .img {
-                                width: 1120px;
+                                // width: 1120px;
+                                width: 50%;
                                 height: 0px;
                                 margin: 0px auto;
-                                padding-bottom: 56.47%;
+                                // padding-bottom: 56.47%;
+                                padding-bottom: 40%;
                                 background: url('../images/mainImg_big.png') no-repeat;
                                 background-size: 100%;
 
@@ -846,11 +888,17 @@ html {
                             height: 100%;
                             float: left;
                             text-align: center;
+                            overflow: hidden;
 
                             &:hover,&:active,&.active {
+                                background: linear-gradient(to bottom,#6c0c54 0%,#6f1ea3 100%);
+                                animation: footerLi_hover 0.4s ease-out 0s;
 
                                 a {
-                                    background: linear-gradient(to bottom,#6c0c54 0%,#6f1ea3 100%);
+                                    
+                                    span {
+                                        animation: footerA_hover 0.4s ease-out 0s;
+                                    }
                                 }
                             }
     
@@ -858,9 +906,13 @@ html {
                                 display: block;
                                 width: 100%;
                                 height: 100%;
-                                line-height: 50px;
-                                color: #ddc075;
-                                font-size: 16px;
+
+                                span {
+                                    display: block;
+                                    line-height: 50px;
+                                    color: #ddc075;
+                                    font-size: 16px;
+                                }
                             }
                         }
                     }
@@ -914,6 +966,23 @@ html {
     }
 }
 
+//header選單hover時效果
+@keyframes li_hover1 {
+    0% {
+        opacity: 0;
+        width: 0%;
+        height: 0%;
+        border-radius: 50% 50% 0% 0%;
+    }
+
+    100% {
+        opacity: 1;
+        width: 150%;
+        height: 150%;
+        border-radius: 50% 50% 0% 0%;
+    }
+}
+
 //header下拉式選單圖示滑出動畫
 @keyframes slideImg {
     0% {
@@ -929,6 +998,41 @@ html {
     100% {
         opacity: 1;
         transform: translateY(0%);
+    }
+}
+
+//右側選單hover彈動效果
+@keyframes rightSide_hover {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    10% {
+        transform: scale(1.2) rotate(0deg);
+    }
+
+    30% {
+        transform: scale(1.2) rotate(-15deg);
+    }
+
+    45% {
+        transform: scale(1.2) rotate(15deg);
+    }
+
+    60% {
+        transform: scale(1.2) rotate(-15deg);
+    }
+
+    75% {
+        transform: scale(1.2) rotate(15deg);
+    }
+
+    80% {
+        transform: scale(1.2) rotate(0deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
     }
 }
 
@@ -987,20 +1091,49 @@ html {
     }
 }
 
-//主選單hover人物淡出效果
+//主選單hover人物淡出效果+header選單hover字效果
 @keyframes imgJump {
     0% {
         opacity: 0;
-        transform: translate(-50%,-30%);
+        transform: translateY(30%);
     }
 
     50% {
         opacity: 0;
-        transform: translate(-50%,-30%);
+        transform: translateY(30%);
     }
 
     100% {
         opacity: 1;
-        transform: translate(-50%,0%);
+        transform: translateY(0%);
+    }
+}
+
+//footer選單hover淡出動畫
+@keyframes footerLi_hover {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+//footer選單hover滑入動畫
+@keyframes footerA_hover {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
     }
 }
